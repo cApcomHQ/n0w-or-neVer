@@ -117,9 +117,9 @@ Stop if the player was already started.
 
 if (playerStarted) {
 
-```
+
 return;
-```
+
 
 }
 
@@ -127,9 +127,9 @@ return;
 Mark the player as started BEFORE
 loading the iframe.
 
-```
+
  This protects against double clicks.
-```
+
 
 */
 
@@ -139,9 +139,9 @@ true;
 /*
 Load the Owncast video embed.
 
-```
+
  The iframe is loaded exactly once.
-```
+
 
 */
 
@@ -162,13 +162,13 @@ Update the stream status.
 
 setStatus(
 
-```
+
 "Stream loading",
 
 "Connecting to Owncast…",
 
 true
-```
+
 
 );
 
@@ -203,7 +203,7 @@ iframe.addEventListener(
 
 () => {
 
-```
+
 setStatus(
 
   "Player connected",
@@ -213,7 +213,7 @@ setStatus(
   true
 
 );
-```
+
 
 }
 
@@ -229,7 +229,7 @@ fullscreenButton.addEventListener(
 
 () => {
 
-```
+
 const frame =
   document.getElementById(
     "playerFrame"
@@ -241,7 +241,7 @@ if (frame.requestFullscreen) {
   frame.requestFullscreen();
 
 }
-```
+
 
 }
 
@@ -257,7 +257,7 @@ popoutButton.addEventListener(
 
 () => {
 
-```
+
 window.open(
 
   OWNCAST_URL,
@@ -267,7 +267,7 @@ window.open(
   "noopener"
 
 );
-```
+
 
 }
 
@@ -283,7 +283,7 @@ copyLink.addEventListener(
 
 async () => {
 
-```
+
 try {
 
 
@@ -331,7 +331,7 @@ setTimeout(
   2500
 
 );
-```
+
 
 }
 
@@ -347,13 +347,13 @@ menuButton.addEventListener(
 
 () => {
 
-```
+
 document
   .querySelector(".desktop-nav")
   .classList.toggle(
     "mobile-open"
   );
-```
+
 
 }
 
