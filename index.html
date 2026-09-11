@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="n0w or neVer — official clan, live stream and community by cApcom.">
+  <meta name="theme-color" content="#020713">
+  <title>n0w or neVer | Live by cApcom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+  <div class="grid"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="n0w or neVer home">
+      <img src="logo.png" alt="n0w or neVer logo" class="brand-logo">
+      <span class="brand-copy"><strong>n0w or neVer</strong><small>CLAN · LIVE · COMMUNITY</small></span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#live">LIVE</a>
+      <a href="#schedule">SCHEDULE</a>
+      <a href="#about">ABOUT</a>
+      <a href="#community">COMMUNITY</a>
+    </nav>
+
+    <div class="header-actions">
+      <span class="live-indicator"><i></i><span id="headerStatus">OWNCAST</span></span>
+      <button class="menu-button" id="menuButton" aria-label="Open navigation">☰</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> OFFICIAL n0w or neVer CLAN</div>
+        <h1>PLAY.<br><em>CONNECT.</em><br>NEVER QUIT.</h1>
+        <p>
+          n0w or neVer is the clan and community built by <strong>cApcom</strong>.
+          Gaming, live moments and a place for people who want to be part of more than just another stream.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#live">WATCH LIVE <b>▶</b></a>
+          <a class="button button-ghost" href="https://discord.gg/TmPJpB9x" target="_blank" rel="noopener">JOIN DISCORD ↗</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>n0n</strong><span>CLAN IDENTITY</span></div>
+          <div><strong>LIVE</strong><span>OWNCAST STREAM</span></div>
+          <div><strong>cApcom</strong><span>CREATOR & OWNER</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="logo-aura"></div>
+        <img src="logo.png" alt="" class="hero-logo">
+        <div class="hero-badge badge-one">⚡ OWN YOUR GAME</div>
+        <div class="hero-badge badge-two">● LIVE COMMUNITY</div>
+      </div>
+    </section>
+
+    <section class="live-section section-shell" id="live">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow"><span></span> LIVE CHANNEL</span>
+          <h2>WATCH THE <em>STREAM.</em></h2>
+        </div>
+        <div class="status-card">
+          <i id="statusDot"></i>
+          <div>
+            <strong id="streamStatus">Ready to play</strong>
+            <span id="statusDetail">Owncast video & chat connected</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="live-layout">
+        <div class="video-column">
+          <div class="player-frame" id="playerFrame">
+            <iframe
+              id="owncastPlayer"
+              title="n0w or neVer Owncast live stream"
+              data-src="https://nowornever.ddnss.eu/embed/video?autoplay=always"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+              referrerpolicy="origin">
+            </iframe>
+
+            <button class="play-overlay" id="playButton" type="button" aria-label="Play live stream">
+              <span class="play-icon">▶</span>
+              <span class="play-copy"><strong>PLAY STREAM</strong><small>n0w or neVer LIVE</small></span>
+            </button>
+
+            <div class="player-corner top-left"><span></span> LIVE BROADCAST</div>
+            <div class="player-corner top-right">OWNCAST · cApcom</div>
+            <div class="player-controls">
+              <button id="popoutButton" type="button" title="Open stream in new tab">↗</button>
+              <button id="fullscreenButton" type="button" title="Fullscreen">⛶</button>
+            </div>
+          </div>
+
+          <div class="stream-footer">
+            <div class="stream-info">
+              <span class="tag">OWNCAST LIVE</span>
+              <h3>n0w or neVer — Live Stream</h3>
+              <p>Press play and join the live moment. The player fills the complete available frame.</p>
+            </div>
+            <div class="stream-actions">
+              <button class="icon-button" id="copyLink" type="button">⧉ <span>COPY LINK</span></button>
+              <a class="icon-button" id="openOwncast" href="https://nowornever.ddnss.eu" target="_blank" rel="noopener">↗ <span>OPEN PLAYER</span></a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="chat-frame" aria-label="Live chat">
+          <div class="chat-header"><span class="chat-live-dot"></span><strong>LIVE CHAT</strong><span>COMMUNITY</span></div>
+          <iframe
+            id="owncastChat"
+            title="n0w or neVer Owncast live chat"
+            src="https://nowornever.ddnss.eu/embed/chat/readwrite">
+          </iframe>
+        </aside>
+      </div>
+    </section>
+
+    <section class="stats-band">
+      <div><strong>01</strong><span>ONE CLAN</span></div>
+      <div><strong>∞</strong><span>MORE TO COME</span></div>
+      <div><strong>LIVE</strong><span>OWNCAST POWERED</span></div>
+      <div><strong>cApcom</strong><span>ORIGINAL CREATOR</span></div>
+    </section>
+
+    <section class="section-shell schedule-section" id="schedule">
+      <div class="section-heading compact">
+        <div>
+          <span class="eyebrow"><span></span> UPCOMING</span>
+          <h2>WHAT'S <em>NEXT.</em></h2>
+        </div>
+        <p class="section-intro">The schedule changes with the games, events and community moments that deserve to be shared.</p>
+      </div>
+      <div class="schedule-grid">
+        <article class="schedule-card featured"><span class="schedule-label">NEXT SESSION</span><div class="schedule-time">TBA</div><h3>LIVE GAMING</h3><p>Competitive gameplay, community interaction and everything happening in the moment.</p><span class="schedule-arrow">↗</span></article>
+        <article class="schedule-card"><span class="schedule-label">COMMUNITY</span><div class="schedule-time">OPEN</div><h3>HANGOUT</h3><p>Talk, play and connect with the people behind the community.</p><span class="schedule-arrow">↗</span></article>
+        <article class="schedule-card"><span class="schedule-label">SPECIAL</span><div class="schedule-time">SOON</div><h3>EVENT NIGHT</h3><p>Special streams, challenges and moments worth remembering.</p><span class="schedule-arrow">↗</span></article>
+      </div>
+    </section>
+
+    <section class="about-section section-shell" id="about">
+      <div class="about-big">
+        <span class="eyebrow"><span></span> THE CLAN</span>
+        <h2>MORE THAN<br>A STREAM.<br><em>n0w or neVer.</em></h2>
+      </div>
+      <div class="about-copy">
+        <p class="lead">n0w or neVer is a clan and community created by cApcom around gaming, competition and real people sharing the experience together.</p>
+        <p>This platform is independently built around Owncast so the community has its own place to watch, chat and connect.</p>
+        <div class="principles">
+          <div><span>01</span><strong>AUTHENTIC</strong><p>Real people. Real moments.</p></div>
+          <div><span>02</span><strong>INDEPENDENT</strong><p>Our own platform and community space.</p></div>
+          <div><span>03</span><strong>CONNECTED</strong><p>Watch and chat together in real time.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="community-cta section-shell" id="community">
+      <div class="cta-logo-wrap"><img src="logo.png" alt="n0w or neVer"></div>
+      <div class="cta-content">
+        <span class="eyebrow"><span></span> COMMUNITY FIRST</span>
+        <h2>DON'T JUST WATCH.<br><em>BE PART OF IT.</em></h2>
+        <p>Join the official n0w or neVer Discord community.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://discord.gg/TmPJpB9x" target="_blank" rel="noopener">JOIN DISCORD ↗</a>
+          <a class="button button-ghost" href="#live">WATCH THE STREAM</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand footer-brand">
+      <img src="logo.png" alt="n0w or neVer logo" class="brand-logo">
+      <span class="brand-copy"><strong>n0w or neVer</strong><small>CLAN · LIVE · COMMUNITY</small></span>
+    </div>
+    <span>© <span id="year"></span> cApcom — n0w or neVer Clan. All rights reserved.</span>
+    <a href="#top">BACK TO TOP ↑</a>
+  </footer>
+
+  <div class="toast" id="toast">Link copied to clipboard</div>
+  <script src="script.js"></script>
+</body>
+</html>
