@@ -140,16 +140,14 @@ function startPlayer() {
     Hls.isSupported()
   ) {
 
-    hls =
-      new Hls({
-
-        enableWorker: true,
-
-        lowLatencyMode: true,
-
-        backBufferLength: 30
-
-      });
+	hls = new Hls({
+	  enableWorker: true,
+	  lowLatencyMode: false,        // ← ändern (war: true)
+	  backBufferLength: 30,
+	  liveSyncDurationCount: 3,     // ← neu: Anzahl Segmente Abstand zum Live-Rand
+	  liveMaxLatencyDurationCount: 6, // ← neu: Toleranz bevor resynct wird
+	  maxLiveSyncPlaybackRate: 1.1  // ← neu: sanftes Aufholen statt harter Sprung
+	});
 
 
     hls.loadSource(
