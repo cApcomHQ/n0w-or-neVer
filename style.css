@@ -448,7 +448,7 @@ footer a:hover {
     0 0 70px rgba(0, 117, 255, .1);
 }
 
-.player-frame iframe {
+.player-frame video {
   position: absolute;
   inset: 0;
   display: block;
@@ -456,6 +456,7 @@ footer a:hover {
   height: 100%;
   border: 0;
   background: #000;
+  object-fit: cover;
 }
 
 .play-overlay {
