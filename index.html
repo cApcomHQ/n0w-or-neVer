@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -10,13 +8,14 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>n0w or neVer | Live by cApcom</title>
-
     <meta
         name="description"
-        content="n0w or neVer - Live streams by cApcom."
+        content="n0w or neVer - Live gaming, streaming and community."
     >
 
+    <title>n0w or neVer | Live</title>
+
+    <!-- Fonts -->
     <link
         rel="preconnect"
         href="https://fonts.googleapis.com"
@@ -33,64 +32,61 @@
         rel="stylesheet"
     >
 
+    <!-- CSS -->
     <link
         rel="stylesheet"
         href="style.css"
     >
-
 </head>
 
 
 <body>
 
-
-    <!-- BACKGROUND -->
-
+    <!-- Background -->
     <div class="grid"></div>
 
     <div class="ambient ambient-a"></div>
-
     <div class="ambient ambient-b"></div>
 
 
-    <!-- HEADER -->
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
     <header class="site-header">
 
-
         <a
-            href="#home"
             class="brand"
+            href="#home"
+            aria-label="n0w or neVer Home"
         >
 
             <img
                 src="images/logo.png"
-                alt="n0w or neVer logo"
+                alt="n0w or neVer Logo"
                 class="brand-logo"
             >
 
-            <div class="brand-copy">
-
+            <span class="brand-copy">
                 <strong>n0w or neVer</strong>
 
-                <small>CLAN · LIVE · COMMUNITY</small>
-
-            </div>
+                <small>
+                    LIVE · GAMING · COMMUNITY
+                </small>
+            </span>
 
         </a>
 
 
         <nav
             class="desktop-nav"
-            id="desktopNav"
+            id="mainNav"
         >
 
+            <a href="#home">HOME</a>
             <a href="#live">LIVE</a>
-
             <a href="#schedule">SCHEDULE</a>
-
             <a href="#about">ABOUT</a>
-
             <a href="#community">COMMUNITY</a>
 
         </nav>
@@ -99,27 +95,20 @@
         <div class="header-actions">
 
             <div class="live-indicator">
-
                 <i></i>
-
-                LIVE
-
+                <span>LIVE PLATFORM</span>
             </div>
 
 
             <button
                 class="menu-button"
                 id="menuButton"
-                type="button"
-                aria-label="Open navigation"
+                aria-label="Open menu"
             >
-
                 ☰
-
             </button>
 
         </div>
-
 
     </header>
 
@@ -128,7 +117,9 @@
     <main>
 
 
-        <!-- HERO -->
+        <!-- =================================================
+             HERO
+        ================================================== -->
 
         <section
             class="hero section-shell"
@@ -138,50 +129,37 @@
 
             <div class="hero-copy">
 
-
                 <div class="eyebrow">
-
                     <span></span>
-
-                    LIVE CHANNEL
-
+                    <p>WELCOME TO THE COMMUNITY</p>
                 </div>
 
 
                 <h1>
-
-                    WATCH THE
-
-                    <em>STREAM.</em>
-
+                    n0w or
+                    <em>neVer</em>
                 </h1>
 
 
                 <p>
 
                     Welcome to the official home of
-
                     <strong>n0w or neVer</strong>.
 
-                    Live streams, gaming and community content by
-
-                    <strong>cApcom</strong>.
+                    Gaming, live streams and community —
+                    built around one place.
 
                 </p>
 
 
                 <div class="hero-actions">
 
-
                     <a
                         href="#live"
                         class="button button-primary"
                     >
-
                         WATCH LIVE
-
-                        <span>↗</span>
-
+                        <span>→</span>
                     </a>
 
 
@@ -191,54 +169,41 @@
                         rel="noopener noreferrer"
                         class="button button-ghost"
                     >
-
                         JOIN DISCORD
-
+                        <span>↗</span>
                     </a>
-
 
                 </div>
 
 
                 <div class="hero-meta">
 
-
                     <div>
-
                         <strong>LIVE</strong>
-
-                        <span>OWNCAST STREAM</span>
-
+                        <span>STREAMING PLATFORM</span>
                     </div>
 
 
                     <div>
-
-                        <strong>cApcom</strong>
-
-                        <span>STREAMER</span>
-
+                        <strong>ONE</strong>
+                        <span>OFFICIAL STREAM</span>
                     </div>
 
 
                     <div>
-
-                        <strong>n0w or neVer</strong>
-
-                        <span>COMMUNITY</span>
-
+                        <strong>24/7</strong>
+                        <span>COMMUNITY ACCESS</span>
                     </div>
-
 
                 </div>
-
 
             </div>
 
 
 
-            <div class="hero-visual">
+            <!-- HERO LOGO -->
 
+            <div class="hero-visual">
 
                 <div class="logo-aura"></div>
 
@@ -251,18 +216,13 @@
 
 
                 <div class="hero-badge badge-one">
-
-                    LIVE · OWNCAST
-
+                    LIVE COMMUNITY
                 </div>
 
 
                 <div class="hero-badge badge-two">
-
-                    COMMUNITY ONLINE
-
+                    n0w or neVer
                 </div>
-
 
             </div>
 
@@ -271,7 +231,9 @@
 
 
 
-        <!-- LIVE -->
+        <!-- =================================================
+             LIVE
+        ================================================== -->
 
         <section
             class="live-section section-shell"
@@ -281,27 +243,18 @@
 
             <div class="section-heading">
 
-
                 <div>
 
-
                     <div class="eyebrow">
-
                         <span></span>
-
-                        LIVE CHANNEL
-
+                        <p>WATCH THE STREAM</p>
                     </div>
 
 
                     <h2>
-
-                        WATCH THE
-
-                        <em>STREAM.</em>
-
+                        LIVE
+                        <em>NOW</em>
                     </h2>
-
 
                 </div>
 
@@ -309,18 +262,23 @@
 
                 <div class="status-card">
 
-
-                    <i></i>
+                    <i
+                        id="statusDot"
+                        class="live"
+                    ></i>
 
 
                     <div>
 
-                        <strong>Player connected</strong>
+                        <strong id="streamStatus">
+                            STREAM READY
+                        </strong>
 
-                        <span>Owncast video is ready</span>
+                        <span>
+                            OWNCAST STREAM SERVER
+                        </span>
 
                     </div>
-
 
                 </div>
 
@@ -328,6 +286,8 @@
             </div>
 
 
+
+            <!-- LIVE LAYOUT -->
 
             <div class="live-layout">
 
@@ -337,150 +297,85 @@
                 <div class="video-column">
 
 
-                    <div class="player-frame">
+                    <div
+                        class="player-frame"
+                        id="playerFrame"
+                    >
 
 
-                        <!--
-                            OWNCAST VIDEO
-
-                            Der iframe ist absichtlich höher als
-                            der sichtbare 16:9-Rahmen.
-
-                            Dadurch wird der zusätzliche Owncast-
-                            Bereich unterhalb des Videos abgeschnitten.
-                        -->
+                        <!-- Owncast Player -->
 
                         <iframe
                             id="owncastPlayer"
-                            src="https://nowornever.ddnss.eu/embed/video/"
+                            src="about:blank"
                             title="n0w or neVer Live Stream"
                             allow="autoplay; fullscreen; picture-in-picture"
                             allowfullscreen
-                        >
-                        </iframe>
+                        ></iframe>
 
 
 
-                        <!-- PLAY OVERLAY -->
+                        <!-- Play Overlay -->
 
                         <button
                             class="play-overlay"
                             id="playOverlay"
                             type="button"
-                            aria-label="Start live stream"
                         >
 
-
                             <span class="play-icon">
-
                                 ▶
-
                             </span>
 
 
                             <span class="play-copy">
 
-
                                 <strong>
-
-                                    WATCH LIVE
-
+                                    PLAY STREAM
                                 </strong>
 
-
                                 <small>
-
-                                    CLICK TO START THE STREAM
-
+                                    CLICK TO START
                                 </small>
 
-
                             </span>
-
 
                         </button>
 
 
 
-                        <!-- PLAYER LABEL -->
+                        <!-- Corner -->
 
-                        <div class="player-corner top-left">
+                        <div
+                            class="player-corner top-left"
+                        >
 
                             <span></span>
-
-                            LIVE BROADCAST
-
-                        </div>
-
-
-                        <div class="player-corner top-right">
-
-                            OWNCAST · cApcom
+                            LIVE STREAM
 
                         </div>
 
 
-                    </div>
+                        <div
+                            class="player-corner top-right"
+                        >
 
-
-                    <!-- STREAM INFO -->
-
-                    <div class="stream-footer">
-
-
-                        <div class="stream-info">
-
-
-                            <span class="tag">
-
-                                OWNCAST LIVE
-
-                            </span>
-
-
-                            <h3>
-
-                                n0w or neVer — Live Stream
-
-                            </h3>
-
-
-                            <p>
-
-                                Press play and join the live moment.
-
-                            </p>
-
+                            OWNCAST
 
                         </div>
 
 
+                        <!-- Controls -->
 
-                        <div class="stream-actions">
-
+                        <div class="player-controls">
 
                             <button
-                                class="icon-button"
-                                id="copyLink"
+                                id="fullscreenButton"
                                 type="button"
+                                aria-label="Fullscreen"
                             >
-
-                                COPY LINK
-
+                                ⛶
                             </button>
-
-
-                            <a
-                                class="icon-button"
-                                href="https://nowornever.ddnss.eu"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-
-                                OPEN PLAYER
-
-                            </a>
-
 
                         </div>
 
@@ -499,33 +394,26 @@
 
                     <div class="chat-header">
 
-
                         <span class="chat-live-dot"></span>
 
-
                         <strong>
-
                             LIVE CHAT
-
                         </strong>
 
-
                         <span>
-
-                            COMMUNITY
-
+                            OWNCAST
                         </span>
-
 
                     </div>
 
 
 
                     <iframe
+                        id="owncastChat"
                         src="https://nowornever.ddnss.eu/embed/chat/readwrite/"
                         title="n0w or neVer Live Chat"
-                    >
-                    </iframe>
+                        allow="clipboard-read; clipboard-write"
+                    ></iframe>
 
 
                 </aside>
@@ -534,48 +422,91 @@
             </div>
 
 
+
+            <!-- STREAM INFO -->
+
+            <div class="stream-footer">
+
+
+                <div class="stream-info">
+
+                    <span class="tag">
+                        n0w or neVer
+                    </span>
+
+
+                    <h3>
+                        cApcom TV
+                    </h3>
+
+
+                    <p>
+                        Live gaming and community streaming.
+                    </p>
+
+                </div>
+
+
+
+                <div class="stream-actions">
+
+                    <a
+                        href="https://discord.gg/TmPJp"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="icon-button"
+                    >
+                        JOIN DISCORD ↗
+                    </a>
+
+
+                    <button
+                        class="icon-button"
+                        id="copyLink"
+                        type="button"
+                    >
+                        COPY STREAM LINK
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
         </section>
 
 
 
-        <!-- STATS -->
+        <!-- =================================================
+             STATS
+        ================================================== -->
 
-        <section class="stats-band">
-
+        <section
+            class="stats-band"
+        >
 
             <div>
-
                 <strong>LIVE</strong>
-
-                <span>STREAMING PLATFORM</span>
-
+                <span>STREAM PLATFORM</span>
             </div>
 
 
             <div>
+                <strong>1080P</strong>
+                <span>HIGH QUALITY</span>
+            </div>
 
+
+            <div>
                 <strong>OWNCAST</strong>
-
                 <span>SELF HOSTED</span>
-
             </div>
 
 
             <div>
-
-                <strong>cApcom</strong>
-
-                <span>CREATOR</span>
-
-            </div>
-
-
-            <div>
-
-                <strong>n0w or neVer</strong>
-
+                <strong>∞</strong>
                 <span>COMMUNITY</span>
-
             </div>
 
 
@@ -583,7 +514,9 @@
 
 
 
-        <!-- SCHEDULE -->
+        <!-- =================================================
+             SCHEDULE
+        ================================================== -->
 
         <section
             class="schedule-section section-shell"
@@ -596,32 +529,25 @@
 
                 <div>
 
-
                     <div class="eyebrow">
-
                         <span></span>
-
-                        STREAM SCHEDULE
-
+                        <p>UPCOMING STREAMS</p>
                     </div>
 
 
                     <h2>
-
-                        NEXT
-
-                        <em>UP.</em>
-
+                        STREAM
+                        <em>SCHEDULE</em>
                     </h2>
-
 
                 </div>
 
 
                 <p class="section-intro">
 
-                    Stream times can change.
-                    Join Discord to stay updated.
+                    Upcoming gaming sessions and live events.
+                    The schedule can change depending on the game
+                    and the community.
 
                 </p>
 
@@ -635,42 +561,30 @@
 
                 <article class="schedule-card">
 
-
                     <span class="schedule-label">
-
-                        STREAM 01
-
+                        NEXT STREAM
                     </span>
 
 
                     <div class="schedule-time">
-
-                        TBD
-
+                        TBA
                     </div>
 
 
                     <h3>
-
-                        Gaming Session
-
+                        GAMING SESSION
                     </h3>
 
 
                     <p>
-
-                        Competitive games,
-                        community moments and live gameplay.
-
+                        The next live session will be announced
+                        through the community.
                     </p>
 
 
                     <span class="schedule-arrow">
-
-                        ↗
-
+                        →
                     </span>
-
 
                 </article>
 
@@ -678,42 +592,30 @@
 
                 <article class="schedule-card featured">
 
-
                     <span class="schedule-label">
-
-                        STREAM 02
-
+                        COMMUNITY
                     </span>
 
 
                     <div class="schedule-time">
-
-                        TBD
-
+                        LIVE
                     </div>
 
 
                     <h3>
-
-                        Community Night
-
+                        n0w or neVer
                     </h3>
 
 
                     <p>
-
-                        Games, chat and hanging out
-                        with the n0w or neVer community.
-
+                        Join the Discord community and never miss
+                        the next stream.
                     </p>
 
 
                     <span class="schedule-arrow">
-
-                        ↗
-
+                        →
                     </span>
-
 
                 </article>
 
@@ -721,42 +623,30 @@
 
                 <article class="schedule-card">
 
-
                     <span class="schedule-label">
-
-                        STREAM 03
-
+                        GAME NIGHT
                     </span>
 
 
                     <div class="schedule-time">
-
-                        TBD
-
+                        TBA
                     </div>
 
 
                     <h3>
-
-                        Special Stream
-
+                        COMMUNITY PLAY
                     </h3>
 
 
                     <p>
-
-                        Special events,
-                        challenges and spontaneous live sessions.
-
+                        Play together, hang out and connect
+                        with the community.
                     </p>
 
 
                     <span class="schedule-arrow">
-
-                        ↗
-
+                        →
                     </span>
-
 
                 </article>
 
@@ -768,7 +658,9 @@
 
 
 
-        <!-- ABOUT -->
+        <!-- =================================================
+             ABOUT
+        ================================================== -->
 
         <section
             class="about-section section-shell"
@@ -778,26 +670,16 @@
 
             <div class="about-big">
 
-
                 <div class="eyebrow">
-
                     <span></span>
-
-                    ABOUT
-
+                    <p>ABOUT THE PROJECT</p>
                 </div>
 
 
                 <h2>
-
-                    PLAY.
-
-                    <em>STREAM.</em>
-
-                    CONNECT.
-
+                    BUILT FOR
+                    <em>GAMERS.</em>
                 </h2>
-
 
             </div>
 
@@ -808,25 +690,18 @@
 
                 <p class="lead">
 
-                    n0w or neVer is a gaming and community project
-                    built around live experiences.
+                    n0w or neVer is a gaming and community
+                    project created around live entertainment,
+                    shared experiences and playing together.
 
                 </p>
 
 
                 <p>
 
-                    The goal is simple:
-                    create a place where people can watch,
-                    play and connect.
-
-                </p>
-
-
-                <p>
-
-                    Streams are hosted by cApcom and powered
-                    through a self-hosted Owncast server.
+                    The platform is independently operated by
+                    <strong>cApcom</strong> and powered by a
+                    self-hosted streaming infrastructure.
 
                 </p>
 
@@ -837,49 +712,40 @@
 
                     <div>
 
-
                         <span>01</span>
 
+                        <div>
 
-                        <strong>
+                            <strong>
+                                COMMUNITY
+                            </strong>
 
-                            COMMUNITY FIRST
+                            <p>
+                                A place to meet, play and connect.
+                            </p>
 
-                        </strong>
-
-
-                        <p>
-
-                            A place to meet,
-                            play and connect.
-
-                        </p>
-
+                        </div>
 
                     </div>
 
 
 
                     <div>
-
 
                         <span>02</span>
 
+                        <div>
 
-                        <strong>
+                            <strong>
+                                LIVE
+                            </strong>
 
-                            LIVE EXPERIENCE
+                            <p>
+                                Gaming and entertainment streamed
+                                directly to the community.
+                            </p>
 
-                        </strong>
-
-
-                        <p>
-
-                            Real-time streams and
-                            direct interaction.
-
-                        </p>
-
+                        </div>
 
                     </div>
 
@@ -887,24 +753,20 @@
 
                     <div>
 
-
                         <span>03</span>
 
+                        <div>
 
-                        <strong>
+                            <strong>
+                                INDEPENDENT
+                            </strong>
 
-                            OWN PLATFORM
+                            <p>
+                                Built around an independently
+                                operated streaming setup.
+                            </p>
 
-                        </strong>
-
-
-                        <p>
-
-                            A self-hosted streaming setup
-                            built for the community.
-
-                        </p>
-
+                        </div>
 
                     </div>
 
@@ -919,7 +781,9 @@
 
 
 
-        <!-- COMMUNITY -->
+        <!-- =================================================
+             COMMUNITY
+        ================================================== -->
 
         <section
             class="community-cta section-shell"
@@ -927,14 +791,14 @@
         >
 
 
-            <div class="cta-logo-wrap">
+            <!-- LOGO -->
 
+            <div class="cta-logo-wrap">
 
                 <img
                     src="images/logo.png"
-                    alt="n0w or neVer logo"
+                    alt="n0w or neVer Logo"
                 >
-
 
             </div>
 
@@ -942,35 +806,27 @@
 
             <div>
 
-
                 <div class="eyebrow">
-
                     <span></span>
-
-                    COMMUNITY
-
+                    <p>JOIN THE COMMUNITY</p>
                 </div>
 
 
                 <h2>
-
-                    JOIN THE
-
-                    <em>CLAN.</em>
-
+                    n0w or
+                    <em>neVer.</em>
                 </h2>
 
 
                 <p>
 
-                    Join the n0w or neVer community
-                    and connect with other players.
+                    Join the Discord community, connect with other
+                    players and be part of the next game or stream.
 
                 </p>
 
 
                 <div class="hero-actions">
-
 
                     <a
                         href="https://discord.gg/TmPJp"
@@ -978,16 +834,11 @@
                         rel="noopener noreferrer"
                         class="button button-primary"
                     >
-
                         JOIN DISCORD
-
                         <span>↗</span>
-
                     </a>
 
-
                 </div>
-
 
             </div>
 
@@ -999,253 +850,245 @@
 
 
 
-    <!-- FOOTER -->
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
 
     <footer>
 
 
-        <a
-            href="#home"
-            class="brand footer-brand"
-        >
-
+        <div class="brand footer-brand">
 
             <img
                 src="images/logo.png"
-                alt="n0w or neVer logo"
+                alt="n0w or neVer Logo"
                 class="brand-logo"
             >
 
 
-            <div class="brand-copy">
-
+            <span class="brand-copy">
 
                 <strong>
-
                     n0w or neVer
-
                 </strong>
 
-
                 <small>
-
-                    CLAN · LIVE · COMMUNITY
-
+                    OFFICIAL COMMUNITY
                 </small>
 
+            </span>
 
-            </div>
-
-
-        </a>
+        </div>
 
 
 
         <span>
-
             © 2026 cApcom · n0w or neVer
-
         </span>
 
 
 
-        <div>
-
-
-            <a href="#home">
-
-                HOME
-
-            </a>
-
-
-            &nbsp;&nbsp;
-
-
-            <a href="#live">
-
-                LIVE
-
-            </a>
-
-
-        </div>
+        <span>
+            ALL RIGHTS RESERVED
+        </span>
 
 
     </footer>
 
 
 
-    <!-- TOAST -->
+    <!-- Toast -->
 
     <div
         class="toast"
         id="toast"
     >
-
-        Link copied to clipboard
-
+        STREAM LINK COPIED
     </div>
 
 
 
-    <!-- JAVASCRIPT -->
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
     <script>
 
+        /* =====================================================
+           SETTINGS
+        ====================================================== */
 
-        /*
-        ------------------------------------------------
-        MOBILE MENU
-        ------------------------------------------------
-        */
+        const OWNCAST_URL =
+            "https://nowornever.ddnss.eu";
 
-        const menuButton =
-            document.getElementById("menuButton");
-
-
-        const desktopNav =
-            document.getElementById("desktopNav");
-
-
-        if (
-            menuButton &&
-            desktopNav
-        ) {
-
-
-            menuButton.addEventListener(
-                "click",
-                function () {
-
-
-                    desktopNav.classList.toggle(
-                        "mobile-open"
-                    );
-
-
-                }
-            );
-
-
-        }
+        const OWNCAST_VIDEO =
+            OWNCAST_URL + "/embed/video/";
 
 
 
-        /*
-        ------------------------------------------------
-        PLAY OVERLAY
-        ------------------------------------------------
-        */
+        /* =====================================================
+           ELEMENTS
+        ====================================================== */
 
         const playOverlay =
             document.getElementById("playOverlay");
 
-
         const owncastPlayer =
             document.getElementById("owncastPlayer");
 
+        const playerFrame =
+            document.getElementById("playerFrame");
 
-        if (
-            playOverlay &&
-            owncastPlayer
-        ) {
-
-
-            playOverlay.addEventListener(
-                "click",
-                function () {
-
-
-                    playOverlay.classList.add(
-                        "is-hidden"
-                    );
-
-
-                    owncastPlayer.focus();
-
-
-                }
-            );
-
-
-        }
-
-
-
-        /*
-        ------------------------------------------------
-        COPY STREAM LINK
-        ------------------------------------------------
-        */
+        const fullscreenButton =
+            document.getElementById("fullscreenButton");
 
         const copyLink =
             document.getElementById("copyLink");
 
-
         const toast =
             document.getElementById("toast");
 
+        const menuButton =
+            document.getElementById("menuButton");
 
-        if (copyLink) {
-
-
-            copyLink.addEventListener(
-                "click",
-                async function () {
+        const mainNav =
+            document.getElementById("mainNav");
 
 
-                    try {
+
+        /* =====================================================
+           START STREAM
+        ====================================================== */
+
+        playOverlay.addEventListener("click", () => {
+
+            owncastPlayer.src =
+                OWNCAST_VIDEO;
+
+            playOverlay.classList.add(
+                "is-hidden"
+            );
+
+        });
 
 
-                        await navigator.clipboard.writeText(
-                            "https://capcomhq.github.io/n0w-or-neVer/#live"
-                        );
+
+        /* =====================================================
+           FULLSCREEN
+        ====================================================== */
+
+        fullscreenButton.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    !document.fullscreenElement
+                ) {
+
+                    playerFrame.requestFullscreen();
+
+                }
+
+                else {
+
+                    document.exitFullscreen();
+
+                }
+
+            }
+        );
 
 
-                        toast.classList.add(
-                            "show"
-                        );
+
+        /* =====================================================
+           COPY STREAM LINK
+        ====================================================== */
+
+        copyLink.addEventListener(
+            "click",
+            async () => {
+
+                try {
+
+                    await navigator.clipboard.writeText(
+                        OWNCAST_URL
+                    );
+
+                    toast.classList.add(
+                        "show"
+                    );
+
+                    setTimeout(
+                        () => {
+
+                            toast.classList.remove(
+                                "show"
+                            );
+
+                        },
+                        2200
+                    );
+
+                }
+
+                catch (error) {
+
+                    window.prompt(
+                        "Copy this link:",
+                        OWNCAST_URL
+                    );
+
+                }
+
+            }
+        );
 
 
-                        setTimeout(
-                            function () {
+
+        /* =====================================================
+           MOBILE MENU
+        ====================================================== */
+
+        menuButton.addEventListener(
+            "click",
+            () => {
+
+                mainNav.classList.toggle(
+                    "mobile-open"
+                );
+
+            }
+        );
 
 
-                                toast.classList.remove(
-                                    "show"
-                                );
 
+        /* =====================================================
+           CLOSE MOBILE MENU
+        ====================================================== */
 
-                            },
-                            2200
-                        );
+        document
+            .querySelectorAll(
+                ".desktop-nav a"
+            )
+            .forEach(
+                link => {
 
+                    link.addEventListener(
+                        "click",
+                        () => {
 
-                    }
+                            mainNav.classList.remove(
+                                "mobile-open"
+                            );
 
-
-                    catch (error) {
-
-
-                        console.error(
-                            error
-                        );
-
-
-                    }
-
+                        }
+                    );
 
                 }
             );
-
-
-        }
-
 
     </script>
 
 
 </body>
-
 </html>
