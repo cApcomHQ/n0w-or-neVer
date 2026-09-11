@@ -353,115 +353,101 @@ content="#020713"
 
 
 
-  <!-- =================================================
-       STREAM + CHAT
-  ================================================== -->
+<!-- =================================================
+     STREAM + CHAT
+================================================== -->
 
-  <div class="live-layout">
+<div class="live-layout">
+
+  <!-- VIDEO -->
+
+  <div class="video-column">
+
+    <div
+      class="player-frame"
+      id="playerFrame"
+    >
+
+      <!-- Direct HTTPS HLS Player -->
+
+      <video
+        id="owncastPlayer"
+        title="n0w or neVer Owncast live stream"
+        playsinline
+        preload="none"
+      ></video>
 
 
-    <!-- VIDEO -->
+      <!-- Custom Play Button -->
 
-    <div class="video-column">
-
-
-      <div
-        class="player-frame"
-        id="playerFrame"
+      <button
+        class="play-overlay"
+        id="playButton"
+        type="button"
+        aria-label="Play live stream"
       >
 
+        <span class="play-icon">
+          ▶
+        </span>
 
-        <!-- Owncast Player
-             Loaded only once by script.js -->
+        <span class="play-copy">
 
-        <iframe
-          id="owncastPlayer"
-          title="n0w or neVer Owncast live stream"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-          referrerpolicy="origin">
-        </iframe>
+          <strong>
+            PLAY STREAM
+          </strong>
+
+          <small>
+            n0w or neVer LIVE
+          </small>
+
+        </span>
+
+      </button>
 
 
+      <!-- Player Labels -->
 
-        <!-- Custom Play Button -->
+      <div class="player-corner top-left">
+
+        <span></span>
+
+        LIVE BROADCAST
+
+      </div>
+
+
+      <div class="player-corner top-right">
+
+        OWNCAST · cApcom
+
+      </div>
+
+
+      <!-- Player Controls -->
+
+      <div class="player-controls">
 
         <button
-          class="play-overlay"
-          id="playButton"
+          id="popoutButton"
           type="button"
-          aria-label="Play live stream"
+          title="Open stream in new tab"
         >
-
-          <span class="play-icon">
-            ▶
-          </span>
-
-
-          <span class="play-copy">
-
-            <strong>
-              PLAY STREAM
-            </strong>
-
-
-            <small>
-              n0w or neVer LIVE
-            </small>
-
-          </span>
-
-
+          ↗
         </button>
 
 
-
-        <!-- Player Labels -->
-
-        <div class="player-corner top-left">
-
-          <span></span>
-
-          LIVE BROADCAST
-
-        </div>
-
-
-        <div class="player-corner top-right">
-
-          OWNCAST · cApcom
-
-        </div>
-
-
-
-        <!-- Player Controls -->
-
-        <div class="player-controls">
-
-
-          <button
-            id="popoutButton"
-            type="button"
-            title="Open stream in new tab"
-          >
-            ↗
-          </button>
-
-
-          <button
-            id="fullscreenButton"
-            type="button"
-            title="Fullscreen"
-          >
-            ⛶
-          </button>
-
-
-        </div>
-
+        <button
+          id="fullscreenButton"
+          type="button"
+          title="Fullscreen"
+        >
+          ⛶
+        </button>
 
       </div>
+
+    </div>
 
 
 
@@ -1041,7 +1027,8 @@ content="#020713"
        JAVASCRIPT
   ====================================================== -->
 
-  <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.6.15"></script>
+<script src="script.js"></script>
 
 </body>
 
