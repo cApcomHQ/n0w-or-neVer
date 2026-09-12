@@ -107,7 +107,6 @@ if (
 !window.Twitch.Player
 ) {
 
-```
 setStatus(
   "Player unavailable",
   "Twitch Player API could not be loaded",
@@ -115,7 +114,6 @@ setStatus(
 );
 
 return;
-```
 
 }
 
@@ -123,9 +121,7 @@ if (
 twitchPlayer
 ) {
 
-```
 return;
-```
 
 }
 
@@ -152,7 +148,6 @@ new Twitch.Player(
 "twitchPlayer",
 {
 
-```
     channel:
       TWITCH_CHANNEL,
 
@@ -178,7 +173,6 @@ new Twitch.Player(
 
   }
 );
-```
 
 /*
 Twitch player ready.
@@ -188,7 +182,6 @@ twitchPlayer.addEventListener(
 Twitch.Player.READY,
 () => {
 
-```
   setStatus(
     "Ready",
     "Press play to watch cApcom on Twitch",
@@ -196,7 +189,6 @@ Twitch.Player.READY,
   );
 
 }
-```
 
 );
 
@@ -208,7 +200,6 @@ twitchPlayer.addEventListener(
 Twitch.Player.PLAY,
 () => {
 
-```
   setStatus(
     "LIVE",
     "n0w or neVer · cApcom",
@@ -216,7 +207,6 @@ Twitch.Player.PLAY,
   );
 
 }
-```
 
 );
 
@@ -228,7 +218,6 @@ twitchPlayer.addEventListener(
 Twitch.Player.PAUSE,
 () => {
 
-```
   setStatus(
     "Paused",
     "Twitch stream paused",
@@ -236,7 +225,6 @@ Twitch.Player.PAUSE,
   );
 
 }
-```
 
 );
 
@@ -248,7 +236,6 @@ twitchPlayer.addEventListener(
 Twitch.Player.ONLINE,
 () => {
 
-```
   setStatus(
     "LIVE",
     "n0w or neVer · cApcom",
@@ -256,7 +243,6 @@ Twitch.Player.ONLINE,
   );
 
 }
-```
 
 );
 
@@ -268,7 +254,6 @@ twitchPlayer.addEventListener(
 Twitch.Player.OFFLINE,
 () => {
 
-```
   setStatus(
     "Offline",
     "cApcom is currently not streaming",
@@ -276,7 +261,6 @@ Twitch.Player.OFFLINE,
   );
 
 }
-```
 
 );
 
@@ -288,7 +272,6 @@ twitchPlayer.addEventListener(
 Twitch.Player.ENDED,
 () => {
 
-```
   setStatus(
     "Stream ended",
     "cApcom is currently offline",
@@ -296,7 +279,6 @@ Twitch.Player.ENDED,
   );
 
 }
-```
 
 );
 
@@ -308,7 +290,6 @@ twitchPlayer.addEventListener(
 Twitch.Player.ERROR,
 () => {
 
-```
   setStatus(
     "Twitch error",
     "The Twitch player could not be loaded",
@@ -316,7 +297,6 @@ Twitch.Player.ERROR,
   );
 
 }
-```
 
 );
 
@@ -343,7 +323,6 @@ fullscreenButton.addEventListener(
 "click",
 () => {
 
-```
 if (
   twitchPlayer &&
   typeof twitchPlayer.setQuality === "function"
@@ -376,7 +355,6 @@ if (
   }
 
 }
-```
 
 }
 );
@@ -389,13 +367,11 @@ popoutButton.addEventListener(
 "click",
 () => {
 
-```
 window.open(
   TWITCH_URL,
   "_blank",
   "noopener,noreferrer"
 );
-```
 
 }
 );
@@ -408,7 +384,6 @@ copyLink.addEventListener(
 "click",
 async () => {
 
-```
 try {
 
   await navigator.clipboard.writeText(
@@ -443,7 +418,6 @@ setTimeout(
   },
   2500
 );
-```
 
 }
 );
@@ -456,13 +430,11 @@ menuButton.addEventListener(
 "click",
 () => {
 
-```
 document
   .querySelector(".desktop-nav")
   .classList.toggle(
     "mobile-open"
   );
-```
 
 }
 );
@@ -476,7 +448,6 @@ document
 .forEach(
 (link) => {
 
-```
   link.addEventListener(
     "click",
     () => {
@@ -491,7 +462,6 @@ document
   );
 
 }
-```
 
 );
 
@@ -503,7 +473,6 @@ window.addEventListener(
 "resize",
 () => {
 
-```
 if (
   twitchPlayer
 ) {
@@ -516,7 +485,6 @@ if (
   return;
 
 }
-```
 
 }
 );
