@@ -1,17 +1,22 @@
-# n0w or neVer — Official Owncast Website
+# n0w or neVer — Official Twitch Website
 
 ## Branding
 - Clan: n0w or neVer
 - Creator / owner: cApcom
 - Official logo: logo.png
 - Discord: https://discord.gg/TmPJpB9x
-- Owncast: https://nowornever.ddnss.eu
+- Twitch: https://www.twitch.tv/capcomhq
 
-## Owncast embeds used
-- Video: https://nowornever.ddnss.eu/embed/video
-- Functional read/write chat: https://nowornever.ddnss.eu/embed/chat/readwrite
+## Twitch embeds used
+- Video player: https://player.twitch.tv/?channel=capcomhq&parent=capcomhq.github.io
+- Live chat (read-only): https://www.twitch.tv/embed/capcomhq/chat?parent=capcomhq.github.io
 
-The video iframe is 100% width and height of its 16:9 frame. The custom PLAY STREAM button loads the Owncast video-only embed after the viewer clicks it.
+Both embeds are plain iframes (no Twitch.Embed JS API), built and inserted by script.js. The video iframe fills 100% width and height of its 16:9 frame via CSS. Twitch shows its own "channel offline" screen inside the player automatically when cApcom isn't live — no custom logic needed for that.
+
+### Channel / domain settings
+Both `TWITCH_CHANNEL` and `TWITCH_PARENT` are set at the top of script.js:
+- `TWITCH_CHANNEL` — the Twitch channel name (currently `capcomhq`).
+- `TWITCH_PARENT` — must exactly match the hostname the site is served from (e.g. `capcomhq.github.io`), no `https://`, no path, no trailing slash. If either the channel or the domain ever changes, update both values there.
 
 ## GitHub Pages deployment
 1. Open your repository.
@@ -22,4 +27,5 @@ The video iframe is 100% width and height of its 16:9 frame. The custom PLAY STR
 6. Save and wait for GitHub Pages to publish.
 
 ## Important
-Your Owncast server must stay running and HTTPS must remain valid. GitHub Pages itself hosts only this website; the live video and chat come directly from your Owncast server.
+- If you deploy to a new domain or a different GitHub Pages URL, update `TWITCH_PARENT` in script.js first — otherwise Twitch will refuse to load the player/chat there.
+- Live status isn't tracked automatically anymore (a plain iframe can't report that back to the page). Twitch's own offline screen inside the player is the source of truth for whether cApcom is live.
