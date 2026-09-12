@@ -1,0 +1,1441 @@
+/* ================================
+   n0w or neVer
+   MAIN WEBSITE DESIGN
+================================ */
+
+
+/* ---------- GENERAL ---------- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        #03060b;
+
+    color:
+        #ffffff;
+
+    overflow-x:
+        hidden;
+
+}
+
+
+/* ---------- BACKGROUND ---------- */
+
+.background-glow {
+
+    position:
+        fixed;
+
+    width:
+        800px;
+
+    height:
+        800px;
+
+    top:
+        -400px;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 110, 255, 0.25),
+            transparent 70%
+        );
+
+    pointer-events:
+        none;
+
+    z-index:
+        -1;
+
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+header {
+
+    height:
+        75px;
+
+    width:
+        100%;
+
+    padding:
+        0 6%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    position:
+        sticky;
+
+    top:
+        0;
+
+    z-index:
+        100;
+
+    background:
+        rgba(3, 6, 11, 0.92);
+
+    backdrop-filter:
+        blur(15px);
+
+    border-bottom:
+        1px solid rgba(0, 130, 255, 0.15);
+
+}
+
+
+.logo-small {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    font-size:
+        18px;
+
+    font-weight:
+        bold;
+
+}
+
+
+.logo-small img {
+
+    width:
+        45px;
+
+    height:
+        45px;
+
+    object-fit:
+        cover;
+
+    border-radius:
+        8px;
+
+    box-shadow:
+        0 0 20px
+        rgba(0, 120, 255, 0.4);
+
+}
+
+
+/* ---------- NAVIGATION ---------- */
+
+nav {
+
+    display:
+        flex;
+
+    gap:
+        30px;
+
+}
+
+
+nav a {
+
+    color:
+        #94a3b8;
+
+    text-decoration:
+        none;
+
+    font-size:
+        12px;
+
+    font-weight:
+        bold;
+
+    letter-spacing:
+        1px;
+
+    transition:
+        0.25s;
+
+}
+
+
+nav a:hover {
+
+    color:
+        #ffffff;
+
+}
+
+
+/* ---------- DISCORD BUTTON ---------- */
+
+.discord-button {
+
+    padding:
+        11px 18px;
+
+    border:
+        1px solid
+        rgba(0, 150, 255, 0.3);
+
+    border-radius:
+        8px;
+
+    color:
+        white;
+
+    text-decoration:
+        none;
+
+    font-size:
+        12px;
+
+    font-weight:
+        bold;
+
+    transition:
+        0.25s;
+
+}
+
+
+.discord-button:hover {
+
+    border-color:
+        #00aaff;
+
+    box-shadow:
+        0 0 20px
+        rgba(0, 150, 255, 0.3);
+
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+
+    width:
+        88%;
+
+    max-width:
+        1200px;
+
+    margin:
+        auto;
+
+    min-height:
+        650px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    align-items:
+        center;
+
+    gap:
+        70px;
+
+}
+
+
+.hero-content {
+
+    max-width:
+        600px;
+
+}
+
+
+/* ---------- LIVE STATUS ---------- */
+
+.live-status {
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        2px;
+
+    color:
+        #7da8dc;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.live-dot {
+
+    display:
+        inline-block;
+
+    width:
+        8px;
+
+    height:
+        8px;
+
+    background:
+        #00aaff;
+
+    border-radius:
+        50%;
+
+    box-shadow:
+        0 0 12px
+        #00aaff;
+
+    margin-right:
+        7px;
+
+}
+
+
+/* ---------- HERO TITLE ---------- */
+
+.hero h1 {
+
+    font-size:
+        clamp(
+            60px,
+            8vw,
+            100px
+        );
+
+    line-height:
+        0.9;
+
+    letter-spacing:
+        -5px;
+
+    margin-bottom:
+        30px;
+
+}
+
+
+.hero h1 span {
+
+    color:
+        #149cff;
+
+    text-shadow:
+        0 0 30px
+        rgba(0, 140, 255, 0.5);
+
+}
+
+
+/* ---------- HERO TEXT ---------- */
+
+.hero p {
+
+    color:
+        #8f9bad;
+
+    line-height:
+        1.8;
+
+    font-size:
+        16px;
+
+    max-width:
+        500px;
+
+}
+
+
+/* ---------- HERO BUTTONS ---------- */
+
+.hero-buttons {
+
+    display:
+        flex;
+
+    gap:
+        15px;
+
+    margin-top:
+        35px;
+
+}
+
+
+.primary-button {
+
+    display:
+        inline-block;
+
+    padding:
+        14px 24px;
+
+    border-radius:
+        8px;
+
+    text-decoration:
+        none;
+
+    font-size:
+        12px;
+
+    font-weight:
+        bold;
+
+    letter-spacing:
+        1px;
+
+    color:
+        white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087cff,
+            #00b7ff
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 130, 255, 0.25);
+
+    transition:
+        0.25s;
+
+}
+
+
+.primary-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 150, 255, 0.4);
+
+}
+
+
+.secondary-button {
+
+    display:
+        inline-block;
+
+    padding:
+        14px 24px;
+
+    border-radius:
+        8px;
+
+    text-decoration:
+        none;
+
+    font-size:
+        12px;
+
+    font-weight:
+        bold;
+
+    letter-spacing:
+        1px;
+
+    color:
+        #d6e5f5;
+
+    border:
+        1px solid
+        rgba(0, 140, 255, 0.25);
+
+    transition:
+        0.25s;
+
+}
+
+
+.secondary-button:hover {
+
+    border-color:
+        #00aaff;
+
+}
+
+
+/* ---------- HERO LOGO ---------- */
+
+.hero-logo {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+}
+
+
+.hero-logo img {
+
+    width:
+        100%;
+
+    max-width:
+        500px;
+
+    border-radius:
+        20px;
+
+    box-shadow:
+
+        0 0 60px
+        rgba(0, 90, 255, 0.25),
+
+        0 30px 80px
+        rgba(0, 0, 0, 0.5);
+
+}
+
+
+/* ================================
+   SECTIONS
+================================ */
+
+.section {
+
+    width:
+        88%;
+
+    max-width:
+        1200px;
+
+    margin:
+        auto;
+
+    padding:
+        90px 0;
+
+}
+
+
+.section-label {
+
+    display:
+        block;
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        2px;
+
+    color:
+        #6d9ed2;
+
+    margin-bottom:
+        12px;
+
+}
+
+
+.section h2 {
+
+    font-size:
+        38px;
+
+    margin-bottom:
+        30px;
+
+}
+
+
+/* ---------- SECTION TITLE ---------- */
+
+.section-title {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+/* ---------- VIEWERS ---------- */
+
+.viewer-count {
+
+    color:
+        #8f9bad;
+
+    font-size:
+        12px;
+
+    padding:
+        10px 15px;
+
+    border:
+        1px solid
+        rgba(0, 130, 255, 0.18);
+
+    border-radius:
+        8px;
+
+}
+
+
+/* ================================
+   STREAM AREA
+================================ */
+
+.stream-layout {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 330px;
+
+    gap:
+        20px;
+
+}
+
+
+.stream-player {
+
+    width:
+        100%;
+
+    aspect-ratio:
+        16 / 9;
+
+    background:
+        #020408;
+
+    border:
+        1px solid
+        rgba(0, 130, 255, 0.18);
+
+    border-radius:
+        14px;
+
+    overflow:
+        hidden;
+
+    box-shadow:
+        0 20px 70px
+        rgba(0, 0, 0, 0.5);
+
+}
+
+
+/* ---------- STREAM OFFLINE ---------- */
+
+.stream-offline {
+
+    height:
+        100%;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    text-align:
+        center;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(0, 100, 255, 0.15),
+            transparent 55%
+        ),
+
+        #03070d;
+
+}
+
+
+.play-icon {
+
+    width:
+        60px;
+
+    height:
+        60px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    border:
+        1px solid
+        rgba(0, 160, 255, 0.4);
+
+    color:
+        #00aaff;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.stream-offline h3 {
+
+    font-size:
+        16px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+.stream-offline p {
+
+    color:
+        #8f9bad;
+
+    margin-top:
+        10px;
+
+}
+
+
+.stream-offline small {
+
+    margin-top:
+        15px;
+
+    color:
+        #4f6278;
+
+}
+
+
+/* ---------- STREAM INFO ---------- */
+
+.stream-information {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    margin-top:
+        18px;
+
+}
+
+
+.live-tag {
+
+    display:
+        inline-block;
+
+    padding:
+        5px 8px;
+
+    font-size:
+        10px;
+
+    font-weight:
+        bold;
+
+    border-radius:
+        4px;
+
+    color:
+        #38b8ff;
+
+    background:
+        rgba(0, 140, 255, 0.12);
+
+}
+
+
+.stream-information h3 {
+
+    margin-top:
+        10px;
+
+    font-size:
+        18px;
+
+}
+
+
+.stream-information p {
+
+    color:
+        #8f9bad;
+
+    font-size:
+        13px;
+
+    margin-top:
+        5px;
+
+}
+
+
+.game-category {
+
+    color:
+        #8f9bad;
+
+    font-size:
+        13px;
+
+    padding-top:
+        10px;
+
+}
+
+
+/* ================================
+   CHAT
+================================ */
+
+.chat-box {
+
+    background:
+        #080d16;
+
+    border:
+        1px solid
+        rgba(0, 130, 255, 0.18);
+
+    border-radius:
+        14px;
+
+    overflow:
+        hidden;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    min-height:
+        500px;
+
+}
+
+
+.chat-header {
+
+    padding:
+        18px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.05);
+
+    font-size:
+        12px;
+
+}
+
+
+.chat-header span {
+
+    color:
+        #728197;
+
+    font-size:
+        10px;
+
+}
+
+
+.chat-messages {
+
+    padding:
+        18px;
+
+    flex:
+        1;
+
+}
+
+
+.message {
+
+    padding:
+        12px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.05);
+
+}
+
+
+.message strong {
+
+    color:
+        #29a8ff;
+
+    font-size:
+        12px;
+
+}
+
+
+.message p {
+
+    color:
+        #a4afbe;
+
+    font-size:
+        12px;
+
+    margin-top:
+        5px;
+
+}
+
+
+.chat-bottom {
+
+    padding:
+        16px;
+
+    text-align:
+        center;
+
+    color:
+        #6f7d90;
+
+    font-size:
+        11px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.05);
+
+}
+
+
+/* ================================
+   SCHEDULE
+================================ */
+
+.schedule-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        20px;
+
+}
+
+
+.schedule-card {
+
+    padding:
+        30px;
+
+    background:
+        #080d16;
+
+    border:
+        1px solid
+        rgba(0, 130, 255, 0.15);
+
+    border-radius:
+        12px;
+
+    transition:
+        0.25s;
+
+}
+
+
+.schedule-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(0, 160, 255, 0.4);
+
+}
+
+
+.schedule-card span {
+
+    font-size:
+        11px;
+
+    color:
+        #4fa5e8;
+
+    letter-spacing:
+        1px;
+
+}
+
+
+.schedule-card strong {
+
+    display:
+        block;
+
+    font-size:
+        28px;
+
+    margin:
+        15px 0 8px;
+
+}
+
+
+.schedule-card p {
+
+    color:
+        #8f9bad;
+
+    font-size:
+        13px;
+
+}
+
+
+/* ================================
+   ABOUT
+================================ */
+
+.about-section {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        80px;
+
+}
+
+
+.about-title h2 span {
+
+    color:
+        #1aa8ff;
+
+}
+
+
+.about-text p {
+
+    color:
+        #94a0b0;
+
+    line-height:
+        1.9;
+
+    font-size:
+        16px;
+
+}
+
+
+.about-info {
+
+    margin-top:
+        35px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+.about-info div {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    padding:
+        16px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.05);
+
+}
+
+
+.about-info strong {
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        1px;
+
+    color:
+        #67809c;
+
+}
+
+
+.about-info span {
+
+    color:
+        #d7e2ef;
+
+    font-size:
+        13px;
+
+}
+
+
+/* ================================
+   COMMUNITY
+================================ */
+
+.community-section {
+
+    width:
+        88%;
+
+    max-width:
+        1200px;
+
+    margin:
+        40px auto 100px;
+
+    padding:
+        50px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(0, 130, 255, 0.15),
+            transparent 40%
+        ),
+
+        #080d16;
+
+    border:
+        1px solid
+        rgba(0, 130, 255, 0.18);
+
+    border-radius:
+        18px;
+
+}
+
+
+.community-section h2 {
+
+    font-size:
+        38px;
+
+    margin-bottom:
+        10px;
+
+}
+
+
+.community-section p {
+
+    color:
+        #8f9bad;
+
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+
+    padding:
+        30px 6%;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    border-top:
+        1px solid
+        rgba(0, 130, 255, 0.12);
+
+    color:
+        #6f7d90;
+
+    font-size:
+        11px;
+
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 900px) {
+
+
+    nav {
+
+        display:
+            none;
+
+    }
+
+
+    .hero {
+
+        grid-template-columns:
+            1fr;
+
+        padding:
+            80px 0;
+
+    }
+
+
+    .hero-logo {
+
+        order:
+            -1;
+
+    }
+
+
+    .hero-logo img {
+
+        max-width:
+            400px;
+
+    }
+
+
+    .stream-layout {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .chat-box {
+
+        min-height:
+            350px;
+
+    }
+
+
+    .schedule-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .about-section {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            40px;
+
+    }
+
+
+    .community-section {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            25px;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+
+    .logo-small span {
+
+        display:
+            none;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            60px;
+
+    }
+
+
+    .hero-buttons {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .section-title {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            15px;
+
+    }
+
+
+    .stream-information {
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .community-section {
+
+        padding:
+            30px;
+
+    }
+
+
+    footer {
+
+        flex-direction:
+            column;
+
+        gap:
+            10px;
+
+    }
+
+}
