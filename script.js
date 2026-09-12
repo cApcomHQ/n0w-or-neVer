@@ -1,1007 +1,442 @@
-<!DOCTYPE html>
+/* =========================================================
+   TWITCH SETTINGS
+========================================================= */
 
-<html lang="en">
+const TWITCH_CHANNEL =
+  "capcomhq";
 
-<head>
+const TWITCH_URL =
+  `https://www.twitch.tv/${TWITCH_CHANNEL}`;
 
-  <meta charset="UTF-8">
+/*
+   Your GitHub Pages domain.
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+   IMPORTANT:
+   This must match the domain where the website runs.
+*/
 
-  <meta
-    name="description"
-    content="n0w or neVer — official clan, live stream and community by cApcom."
-  >
+const TWITCH_PARENT =
+  "capcomhq.github.io";
 
-  <meta
-    name="theme-color"
-    content="#020713"
-  >
 
-  <title>n0w or neVer | Live by cApcom</title>
+/* =========================================================
+   ELEMENTS
+========================================================= */
 
+const streamStatus =
+  document.getElementById("streamStatus");
 
-  <!-- Fonts -->
+const statusDetail =
+  document.getElementById("statusDetail");
 
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
+const statusDot =
+  document.getElementById("statusDot");
 
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
+const headerStatus =
+  document.getElementById("headerStatus");
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
+const headerStatusDot =
+  document.getElementById("headerStatusDot");
 
+const chatLiveDot =
+  document.getElementById("chatLiveDot");
 
-  <!-- CSS -->
+const twitchChat =
+  document.getElementById("twitchChat");
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+const toast =
+  document.getElementById("toast");
 
-</head>
+const openTwitch =
+  document.getElementById("openTwitch");
 
+const copyLink =
+  document.getElementById("copyLink");
 
-<body>
+const menuButton =
+  document.getElementById("menuButton");
 
-  <!-- Background -->
+const playerFrame =
+  document.getElementById("playerFrame");
 
-  <div class="ambient ambient-a"></div>
-  <div class="ambient ambient-b"></div>
-  <div class="grid"></div>
 
+/* =========================================================
+   BASIC SETTINGS
+========================================================= */
 
-  <!-- =====================================================
-       HEADER
-  ====================================================== -->
+openTwitch.href =
+  TWITCH_URL;
 
-  <header class="site-header">
 
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 
-    <!-- Logo -->
 
-    <a
-      class="brand"
-      href="#top"
-      aria-label="n0w or neVer home"
-    >
+/* =========================================================
+   TWITCH CHAT
+========================================================= */
 
-      <img
-        src="logo.png"
-        alt="n0w or neVer logo"
-        class="brand-logo"
-      >
+twitchChat.src =
+  `https://www.twitch.tv/embed/${TWITCH_CHANNEL}/chat?parent=${TWITCH_PARENT}&darkpopout`;
 
-      <span class="brand-copy">
 
-        <strong>
-          n0w or neVer
-        </strong>
+/* =========================================================
+   STREAM STATUS
+========================================================= */
 
-        <small>
-          CLAN · LIVE · COMMUNITY
-        </small>
+function setStatus(
+  title,
+  detail,
+  live = false
+) {
 
-      </span>
+  streamStatus.textContent =
+    title;
 
-    </a>
 
+  statusDetail.textContent =
+    detail;
 
-    <!-- Navigation -->
 
-    <nav
-      class="desktop-nav"
-      aria-label="Main navigation"
-    >
+  headerStatus.textContent =
+    live
+      ? "LIVE"
+      : "TWITCH";
 
-      <a href="#live">LIVE</a>
-      <a href="#schedule">SCHEDULE</a>
-      <a href="#about">ABOUT</a>
-      <a href="#community">COMMUNITY</a>
 
-    </nav>
+  statusDot.classList.toggle(
+    "live",
+    live
+  );
 
 
-    <!-- Header Status -->
+  headerStatusDot.classList.toggle(
+    "offline",
+    !live
+  );
 
-    <div class="header-actions">
 
-      <span class="live-indicator">
+  chatLiveDot.classList.toggle(
+    "offline",
+    !live
+  );
 
-        <i
-          id="headerStatusDot"
-          class="offline"
-        ></i>
+}
 
-        <span id="headerStatus">
-          TWITCH
-        </span>
 
-      </span>
+/* =========================================================
+   TWITCH PLAYER
+========================================================= */
 
+let twitchEmbed =
+  null;
 
-      <!-- Mobile Menu -->
+let twitchPlayer =
+  null;
 
-      <button
-        class="menu-button"
-        id="menuButton"
-        type="button"
-        aria-label="Open navigation"
-      >
-        ☰
-      </button>
 
-    </div>
+/*
+   Wait until the Twitch Embed API is available.
+*/
 
+function initializeTwitch() {
 
-  </header>
+  if (
+    !window.Twitch ||
+    !Twitch.Embed
+  ) {
 
+    setTimeout(
+      initializeTwitch,
+      100
+    );
 
+    return;
 
-  <!-- =====================================================
-       MAIN
-  ====================================================== -->
+  }
 
-  <main id="top">
 
+  setStatus(
+    "Twitch channel",
+    "Loading official Twitch player…",
+    false
+  );
 
-    <!-- =================================================
-         HERO
-    ================================================== -->
 
-    <section class="hero section-shell">
+  twitchEmbed =
+    new Twitch.Embed(
+      "twitchPlayer",
+      {
 
+        width:
+          1280,
 
-      <!-- Hero Text -->
+        height:
+          720,
 
-      <div class="hero-copy">
+        channel:
+          TWITCH_CHANNEL,
 
+        parent:
+          [
+            TWITCH_PARENT
+          ],
 
-        <div class="eyebrow">
+        layout:
+          "video",
 
-          <span></span>
+        autoplay:
+          false,
 
-          OFFICIAL n0w or neVer CLAN
+        muted:
+          false,
 
-        </div>
+        allowfullscreen:
+          true,
 
+        theme:
+          "dark"
 
-        <h1>
+      }
+    );
 
-          PLAY
 
-          <br>
+  /*
+     Player is ready.
+  */
 
-          <em>CONNECT</em>
+  twitchEmbed.addEventListener(
+    Twitch.Embed.VIDEO_READY,
+    () => {
 
-          <br>
+      twitchPlayer =
+        twitchEmbed.getPlayer();
 
-          NEVER QUIT
 
-        </h1>
+      setStatus(
+        "Twitch ready",
+        "Press play to watch the stream",
+        false
+      );
 
 
-        <p>
+      initializePlayerEvents();
 
-          n0w or neVer is the clan and community built by
+    }
+  );
 
-          <strong>cApcom</strong>.
 
-          Gaming, live moments and a place for people who want
-          to be part of more than just another stream.
+  /*
+     Stream playback started.
+  */
 
-        </p>
+  twitchEmbed.addEventListener(
+    Twitch.Embed.VIDEO_PLAY,
+    () => {
 
+      setStatus(
+        "LIVE",
+        "n0w or neVer · cApcom",
+        true
+      );
 
-        <!-- Hero Buttons -->
+    }
+  );
 
-        <div class="hero-actions">
+}
 
 
-          <a
-            class="button button-primary"
-            href="#live"
-          >
+/* =========================================================
+   TWITCH PLAYER EVENTS
+========================================================= */
 
-            WATCH LIVE
+function initializePlayerEvents() {
 
-            <b>▶</b>
+  if (!twitchPlayer) {
+    return;
+  }
 
-          </a>
 
+  /*
+     Channel online.
+  */
 
-          <a
-            class="button button-ghost"
-            href="https://discord.gg/TmPJpB9x"
-            target="_blank"
-            rel="noopener"
-          >
+  twitchPlayer.addEventListener(
+    Twitch.Player.ONLINE,
+    () => {
 
-            JOIN DISCORD ↗
+      setStatus(
+        "LIVE",
+        "cApcom is currently live on Twitch",
+        true
+      );
 
-          </a>
+    }
+  );
 
 
-        </div>
+  /*
+     Channel offline.
+  */
 
+  twitchPlayer.addEventListener(
+    Twitch.Player.OFFLINE,
+    () => {
 
-        <!-- Hero Information -->
+      setStatus(
+        "Channel offline",
+        "Follow cApcom on Twitch for the next stream",
+        false
+      );
 
-        <div class="hero-meta">
+    }
+  );
 
 
-          <div>
+  /*
+     Video is playing.
+  */
 
-            <strong>
-              n0n
-            </strong>
+  twitchPlayer.addEventListener(
+    Twitch.Player.PLAYING,
+    () => {
 
-            <span>
-              CLAN IDENTITY
-            </span>
+      setStatus(
+        "LIVE",
+        "n0w or neVer · cApcom",
+        true
+      );
 
-          </div>
+    }
+  );
 
 
-          <div>
+  /*
+     Playback paused.
+  */
 
-            <strong>
-              LIVE
-            </strong>
+  twitchPlayer.addEventListener(
+    Twitch.Player.PAUSE,
+    () => {
 
-            <span>
-              TWITCH STREAM
-            </span>
+      if (
+        twitchPlayer.getEnded &&
+        twitchPlayer.getEnded()
+      ) {
 
-          </div>
+        return;
 
+      }
 
-          <div>
 
-            <strong>
-              cApcom
-            </strong>
+      setStatus(
+        "Twitch ready",
+        "Stream playback paused",
+        false
+      );
 
-            <span>
-              CREATOR & OWNER
-            </span>
+    }
+  );
 
-          </div>
+}
 
 
-        </div>
+/* =========================================================
+   START TWITCH
+========================================================= */
 
+initializeTwitch();
 
-      </div>
 
+/* =========================================================
+   COPY WEBSITE LINK
+========================================================= */
 
-      <!-- Hero Logo -->
+copyLink.addEventListener(
+  "click",
+  async () => {
 
-      <div
-        class="hero-visual"
-        aria-hidden="true"
-      >
+    try {
 
-        <div class="logo-aura"></div>
+      await navigator.clipboard.writeText(
+        window.location.href
+      );
 
-        <img
-          src="logo.png"
-          alt=""
-          class="hero-logo"
-        >
 
-      </div>
+      toast.textContent =
+        "Link copied to clipboard";
 
+    }
 
-    </section>
+    catch {
 
+      toast.textContent =
+        "Copy this page URL from your browser";
 
+    }
 
-    <!-- =================================================
-         LIVE STREAM
-    ================================================== -->
 
-    <section
-      class="live-section section-shell"
-      id="live"
-    >
+    toast.classList.add(
+      "show"
+    );
 
 
-      <!-- Section Heading -->
+    setTimeout(
+      () => {
 
-      <div class="section-heading">
+        toast.classList.remove(
+          "show"
+        );
 
+      },
+      2500
+    );
 
-        <div>
+  }
+);
 
-          <span class="eyebrow">
 
-            <span></span>
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-            LIVE CHANNEL
+menuButton.addEventListener(
+  "click",
+  () => {
 
-          </span>
+    document
+      .querySelector(".desktop-nav")
+      .classList.toggle(
+        "mobile-open"
+      );
 
+  }
+);
 
-          <h2>
 
-            WATCH THE
+/* =========================================================
+   CLOSE MOBILE MENU AFTER CLICK
+========================================================= */
 
-            <em>STREAM</em>
+document
+  .querySelectorAll(
+    ".desktop-nav a"
+  )
+  .forEach(
+    (link) => {
 
-          </h2>
+      link.addEventListener(
+        "click",
+        () => {
 
+          document
+            .querySelector(".desktop-nav")
+            .classList.remove(
+              "mobile-open"
+            );
 
-        </div>
+        }
+      );
 
-
-        <!-- Stream Status -->
-
-        <div class="status-card">
-
-          <i id="statusDot"></i>
-
-
-          <div>
-
-            <strong id="streamStatus">
-              Twitch channel
-            </strong>
-
-            <span id="statusDetail">
-              Loading player…
-            </span>
-
-          </div>
-
-
-        </div>
-
-
-      </div>
-
-
-
-      <!-- =================================================
-           STREAM + CHAT
-      ================================================== -->
-
-      <div class="live-layout">
-
-
-        <!-- VIDEO -->
-
-        <div class="video-column">
-
-
-          <div
-            class="player-frame"
-            id="playerFrame"
-          >
-
-
-            <!-- Official Twitch Player -->
-
-            <div
-              id="twitchPlayer"
-              class="twitch-player"
-            ></div>
-
-
-          </div>
-
-
-
-          <!-- Stream Footer -->
-
-          <div class="stream-footer">
-
-
-            <div class="stream-info">
-
-
-              <span class="tag">
-                TWITCH LIVE
-              </span>
-
-
-              <h3>
-                n0w or neVer — Live Stream
-              </h3>
-
-
-              <p>
-                Watch cApcom live on Twitch directly from the
-                official n0w or neVer website.
-              </p>
-
-
-            </div>
-
-
-
-            <!-- Stream Actions -->
-
-            <div class="stream-actions">
-
-
-              <button
-                class="icon-button"
-                id="copyLink"
-                type="button"
-              >
-
-                ⧉
-
-                <span>
-                  COPY LINK
-                </span>
-
-              </button>
-
-
-
-              <a
-                class="icon-button"
-                id="openTwitch"
-                href="https://www.twitch.tv/capcomhq"
-                target="_blank"
-                rel="noopener"
-              >
-
-                ↗
-
-                <span>
-                  OPEN TWITCH
-                </span>
-
-              </a>
-
-
-            </div>
-
-
-          </div>
-
-
-        </div>
-
-
-
-        <!-- =================================================
-             LIVE CHAT
-        ================================================== -->
-
-        <aside
-          class="chat-frame"
-          aria-label="Twitch live chat"
-        >
-
-
-          <div class="chat-header">
-
-            <span
-              class="chat-live-dot"
-              id="chatLiveDot"
-            ></span>
-
-            <strong>
-              LIVE CHAT
-            </strong>
-
-            <span>
-              TWITCH COMMUNITY
-            </span>
-
-          </div>
-
-
-
-          <!-- Official Twitch Chat -->
-
-          <iframe
-            id="twitchChat"
-            title="n0w or neVer Twitch live chat"
-            allow="clipboard-write"
-          ></iframe>
-
-
-        </aside>
-
-
-      </div>
-
-
-    </section>
-
-
-
-    <!-- =================================================
-         SCHEDULE
-    ================================================== -->
-
-    <section
-      class="section-shell schedule-section"
-      id="schedule"
-    >
-
-
-      <div class="section-heading compact">
-
-
-        <div>
-
-          <span class="eyebrow">
-
-            <span></span>
-
-            UPCOMING
-
-          </span>
-
-
-          <h2>
-
-            WHAT'S
-
-            <em>NEXT.</em>
-
-          </h2>
-
-        </div>
-
-
-        <p class="section-intro">
-
-          The schedule changes with the games,
-          events and community moments that deserve
-          to be shared.
-
-        </p>
-
-
-      </div>
-
-
-
-      <div class="schedule-grid">
-
-
-        <!-- Schedule 1 -->
-
-        <article class="schedule-card featured>
-
-
-          <span class="schedule-label">
-            NEXT SESSION
-          </span>
-
-
-          <div class="schedule-time">
-            Saturday at 8 p.m.
-          </div>
-
-
-          <h3>
-            LIVE GAMING
-          </h3>
-
-
-          <p>
-            Competitive gameplay,
-            community interaction and
-            everything happening in the moment.
-          </p>
-
-
-          <span class="schedule-arrow">
-            ↗
-          </span>
-
-
-        </article>
-
-
-
-        <!-- Schedule 2 -->
-
-        <article class="schedule-card">
-
-
-          <span class="schedule-label">
-            COMMUNITY
-          </span>
-
-
-          <div class="schedule-time">
-            PUBLIC
-          </div>
-
-
-          <h3>
-            LOUNGE Sunday at 6 p.m.
-          </h3>
-
-
-          <p>
-            Talk, play and connect
-            with the people behind
-            the community.
-          </p>
-
-
-          <span class="schedule-arrow">
-            ↗
-          </span>
-
-
-        </article>
-
-
-
-        <!-- Schedule 3 -->
-
-        <article class="schedule-card">
-
-
-          <span class="schedule-label">
-            SPECIAL
-          </span>
-
-
-          <div class="schedule-time">
-            SOON
-          </div>
-
-
-          <h3>
-            EVENT NIGHT
-          </h3>
-
-
-          <p>
-            Special streams,
-            challenges and moments
-            worth remembering.
-          </p>
-
-
-          <span class="schedule-arrow">
-            ↗
-          </span>
-
-
-        </article>
-
-
-      </div>
-
-
-    </section>
-
-
-
-    <!-- =================================================
-         ABOUT
-    ================================================== -->
-
-    <section
-      class="about-section section-shell"
-      id="about"
-    >
-
-
-      <div class="about-big">
-
-
-        <span class="eyebrow">
-
-          <span></span>
-
-          THE CLAN
-
-        </span>
-
-
-        <h2>
-
-          MORE THAN
-
-          <br>
-
-          A STREAM
-
-          <br>
-
-          <em>n0w or neVer</em>
-
-        </h2>
-
-
-      </div>
-
-
-
-      <div class="about-copy">
-
-
-        <p class="lead">
-
-          n0w or neVer is a clan and community
-          created by cApcom around gaming,
-          competition and real people sharing
-          the experience together.
-
-        </p>
-
-
-        <p>
-
-          This platform brings the n0w or neVer community
-          together around live gaming, Twitch and Discord.
-
-        </p>
-
-
-
-        <!-- Principles -->
-
-        <div class="principles">
-
-
-          <div>
-
-            <span></span>
-
-            <strong>
-              AUTHENTIC
-            </strong>
-
-            <p>
-              Real people. Real moments.
-            </p>
-
-          </div>
-
-
-
-          <div>
-
-            <span></span>
-
-            <strong>
-              CONNECTED
-            </strong>
-
-            <p>
-              Watch, chat and play together.
-            </p>
-
-          </div>
-
-
-
-          <div>
-
-            <span></span>
-
-            <strong>
-              COMMUNITY
-            </strong>
-
-            <p>
-              One place for everyone who belongs.
-            </p>
-
-          </div>
-
-
-        </div>
-
-
-      </div>
-
-
-    </section>
-
-
-
-    <!-- =================================================
-         COMMUNITY
-    ================================================== -->
-
-    <section
-      class="community-cta section-shell"
-      id="community"
-    >
-
-
-      <!-- Community Logo -->
-
-      <div class="cta-logo-wrap">
-
-        <img
-          src="logo.png"
-          alt="n0w or neVer"
-        >
-
-      </div>
-
-
-
-      <!-- Community Content -->
-
-      <div class="cta-content">
-
-
-        <span class="eyebrow">
-
-          <span></span>
-
-          COMMUNITY FIRST
-
-        </span>
-
-
-        <h2>
-
-          DON'T JUST WATCH
-
-          <br>
-
-          <em>BE PART OF IT</em>
-
-        </h2>
-
-
-        <p>
-          Join the official n0w or neVer Discord community.
-        </p>
-
-
-
-        <!-- Community Buttons -->
-
-        <div class="hero-actions">
-
-
-          <a
-            class="button button-primary"
-            href="https://discord.gg/TmPJpB9x"
-            target="_blank"
-            rel="noopener"
-          >
-
-            JOIN DISCORD ↗
-
-          </a>
-
-
-
-          <a
-            class="button button-ghost"
-            href="#live"
-          >
-
-            WATCH THE STREAM
-
-          </a>
-
-
-        </div>
-
-
-      </div>
-
-
-    </section>
-
-
-  </main>
-
-
-
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
-
-  <footer>
-
-
-    <!-- Footer Brand -->
-
-    <div class="brand footer-brand">
-
-
-      <img
-        src="logo.png"
-        alt="n0w or neVer logo"
-        class="brand-logo"
-      >
-
-
-      <span class="brand-copy">
-
-        <strong>
-          n0w or neVer
-        </strong>
-
-
-        <small>
-          CLAN · LIVE · COMMUNITY
-        </small>
-
-      </span>
-
-
-    </div>
-
-
-
-    <!-- Copyright -->
-
-    <span>
-
-      ©
-
-      <span id="year"></span>
-
-      cApcom — n0w or neVer Clan.
-      All rights reserved.
-
-    </span>
-
-
-
-    <!-- Back To Top -->
-
-    <a href="#top">
-      BACK TO TOP ↑
-    </a>
-
-
-  </footer>
-
-
-
-  <!-- =====================================================
-       TOAST
-  ====================================================== -->
-
-  <div
-    class="toast"
-    id="toast"
-  >
-    Link copied to clipboard
-  </div>
-
-
-
-  <!-- =====================================================
-       TWITCH EMBED
-  ====================================================== -->
-
-  <script src="https://embed.twitch.tv/embed/v1.js"></script>
-
-
-  <!-- =====================================================
-       WEBSITE JAVASCRIPT
-  ====================================================== -->
-
-  <script src="script.js"></script>
-
-
-</body>
-
-</html>
+    }
+  );
