@@ -12,7 +12,8 @@ const TWITCH_URL =
    Your GitHub Pages domain.
 
    IMPORTANT:
-   This must match the domain where the website runs.
+   This must match the domain where the website runs
+   (hostname only, no path, no protocol, no trailing slash).
 */
 
 const TWITCH_PARENT =
@@ -22,6 +23,9 @@ const TWITCH_PARENT =
 /* =========================================================
    ELEMENTS
 ========================================================= */
+
+const twitchPlayerFrame =
+  document.getElementById("twitchPlayer");
 
 const streamStatus =
   document.getElementById("streamStatus");
@@ -44,20 +48,11 @@ const chatLiveDot =
 const twitchChat =
   document.getElementById("twitchChat");
 
-const toast =
-  document.getElementById("toast");
-
 const openTwitch =
   document.getElementById("openTwitch");
 
-const copyLink =
-  document.getElementById("copyLink");
-
 const menuButton =
   document.getElementById("menuButton");
-
-const playerFrame =
-  document.getElementById("playerFrame");
 
 
 /* =========================================================
@@ -73,327 +68,66 @@ document.getElementById("year").textContent =
 
 
 /* =========================================================
+   TWITCH VIDEO PLAYER
+   (plain iframe — no Twitch.Embed JS API, which has known,
+   long-standing sizing bugs. The CSS in style.css already
+   stretches this iframe to fill the 16:9 frame.)
+========================================================= */
+
+const videoIframe =
+  document.createElement("iframe");
+
+videoIframe.src =
+  `https://player.twitch.tv/?channel=${TWITCH_CHANNEL}&parent=${TWITCH_PARENT}&muted=false`;
+
+videoIframe.setAttribute(
+  "allowfullscreen",
+  "true"
+);
+
+videoIframe.setAttribute(
+  "allow",
+  "autoplay; fullscreen"
+);
+
+videoIframe.frameBorder =
+  "0";
+
+twitchPlayerFrame.appendChild(
+  videoIframe
+);
+
+
+/*
+   We can't reliably detect live/offline status from a plain
+   iframe (Twitch doesn't expose that to outside scripts
+   without OAuth). Twitch itself shows an "offline" screen
+   inside the player when the channel isn't streaming, so we
+   just keep the badge text generic instead of guessing.
+*/
+
+streamStatus.textContent =
+  "Twitch channel";
+
+statusDetail.textContent =
+  "Live when cApcom is streaming";
+
+headerStatus.textContent =
+  "TWITCH";
+
+statusDot.classList.remove("live");
+
+headerStatusDot.classList.add("offline");
+
+chatLiveDot.classList.add("offline");
+
+
+/* =========================================================
    TWITCH CHAT
 ========================================================= */
 
 twitchChat.src =
   `https://www.twitch.tv/embed/${TWITCH_CHANNEL}/chat?parent=${TWITCH_PARENT}&darkpopout`;
-
-
-/* =========================================================
-   STREAM STATUS
-========================================================= */
-
-function setStatus(
-  title,
-  detail,
-  live = false
-) {
-
-  streamStatus.textContent =
-    title;
-
-
-  statusDetail.textContent =
-    detail;
-
-
-  headerStatus.textContent =
-    live
-      ? "LIVE"
-      : "TWITCH";
-
-
-  statusDot.classList.toggle(
-    "live",
-    live
-  );
-
-
-  headerStatusDot.classList.toggle(
-    "offline",
-    !live
-  );
-
-
-  chatLiveDot.classList.toggle(
-    "offline",
-    !live
-  );
-
-}
-
-
-/* =========================================================
-   TWITCH PLAYER
-========================================================= */
-
-let twitchEmbed =
-  null;
-
-let twitchPlayer =
-  null;
-
-
-/*
-   Wait until the Twitch Embed API is available.
-*/
-
-function initializeTwitch() {
-
-  if (
-    !window.Twitch ||
-    !Twitch.Embed
-  ) {
-
-    setTimeout(
-      initializeTwitch,
-      100
-    );
-
-    return;
-
-  }
-
-
-  setStatus(
-    "Twitch channel",
-    "Loading official Twitch player…",
-    false
-  );
-
-
-  twitchEmbed =
-    new Twitch.Embed(
-      "twitchPlayer",
-      {
-
-        width:
-          1280,
-
-        height:
-          720,
-
-        channel:
-          TWITCH_CHANNEL,
-
-        parent:
-          [
-            TWITCH_PARENT
-          ],
-
-        layout:
-          "video",
-
-        autoplay:
-          false,
-
-        muted:
-          false,
-
-        allowfullscreen:
-          true,
-
-        theme:
-          "dark"
-
-      }
-    );
-
-
-  /*
-     Player is ready.
-  */
-
-  twitchEmbed.addEventListener(
-    Twitch.Embed.VIDEO_READY,
-    () => {
-
-      twitchPlayer =
-        twitchEmbed.getPlayer();
-
-
-      setStatus(
-        "Twitch ready",
-        "Press play to watch the stream",
-        false
-      );
-
-
-      initializePlayerEvents();
-
-    }
-  );
-
-
-  /*
-     Stream playback started.
-  */
-
-  twitchEmbed.addEventListener(
-    Twitch.Embed.VIDEO_PLAY,
-    () => {
-
-      setStatus(
-        "LIVE",
-        "n0w or neVer · cApcom",
-        true
-      );
-
-    }
-  );
-
-}
-
-
-/* =========================================================
-   TWITCH PLAYER EVENTS
-========================================================= */
-
-function initializePlayerEvents() {
-
-  if (!twitchPlayer) {
-    return;
-  }
-
-
-  /*
-     Channel online.
-  */
-
-  twitchPlayer.addEventListener(
-    Twitch.Player.ONLINE,
-    () => {
-
-      setStatus(
-        "LIVE",
-        "cApcom is currently live on Twitch",
-        true
-      );
-
-    }
-  );
-
-
-  /*
-     Channel offline.
-  */
-
-  twitchPlayer.addEventListener(
-    Twitch.Player.OFFLINE,
-    () => {
-
-      setStatus(
-        "Channel offline",
-        "Follow cApcom on Twitch for the next stream",
-        false
-      );
-
-    }
-  );
-
-
-  /*
-     Video is playing.
-  */
-
-  twitchPlayer.addEventListener(
-    Twitch.Player.PLAYING,
-    () => {
-
-      setStatus(
-        "LIVE",
-        "n0w or neVer · cApcom",
-        true
-      );
-
-    }
-  );
-
-
-  /*
-     Playback paused.
-  */
-
-  twitchPlayer.addEventListener(
-    Twitch.Player.PAUSE,
-    () => {
-
-      if (
-        twitchPlayer.getEnded &&
-        twitchPlayer.getEnded()
-      ) {
-
-        return;
-
-      }
-
-
-      setStatus(
-        "Twitch ready",
-        "Stream playback paused",
-        false
-      );
-
-    }
-  );
-
-}
-
-
-/* =========================================================
-   START TWITCH
-========================================================= */
-
-initializeTwitch();
-
-
-/* =========================================================
-   COPY WEBSITE LINK
-========================================================= */
-
-copyLink.addEventListener(
-  "click",
-  async () => {
-
-    try {
-
-      await navigator.clipboard.writeText(
-        window.location.href
-      );
-
-
-      toast.textContent =
-        "Link copied to clipboard";
-
-    }
-
-    catch {
-
-      toast.textContent =
-        "Copy this page URL from your browser";
-
-    }
-
-
-    toast.classList.add(
-      "show"
-    );
-
-
-    setTimeout(
-      () => {
-
-        toast.classList.remove(
-          "show"
-        );
-
-      },
-      2500
-    );
-
-  }
-);
 
 
 /* =========================================================
